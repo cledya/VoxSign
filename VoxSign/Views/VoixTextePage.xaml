@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.Views.VoixTextePage">
+  <ScrollView><VerticalStackLayout Padding="20,16" Spacing="14">
+
+    <c:Header Title="Lire la voix" Subtitle="Voix → texte · français"/>
+    <Border Style="{StaticResource SoftCard}" Padding="24"><VerticalStackLayout Spacing="16" HorizontalOptions="Center"><Label Text="🎙 Écoute en cours" Style="{StaticResource Link}" HorizontalOptions="Center"/>
+      <Border BackgroundColor="{StaticResource Primary}" WidthRequest="116" HeightRequest="116" StrokeThickness="0"><Border.StrokeShape><RoundRectangle CornerRadius="58"/></Border.StrokeShape><Label Text="🎙" FontSize="40" HorizontalOptions="Center" VerticalOptions="Center"/></Border>
+      <Label Text="▂ ▄ ▆ █ ▆ ▄ ▂ ▃ ▅ ▃ ▂" TextColor="{StaticResource Primary}" HorizontalOptions="Center" FontSize="22"/>
+      <Label Text="Le micro est actif · 00:18" HorizontalOptions="Center"/></VerticalStackLayout></Border>
+    <Grid ColumnDefinitions="*,Auto"><Label Text="Transcription en direct" Style="{StaticResource H2}" FontSize="20"/><Label Grid.Column="1" Text="A+ Agrandir" Style="{StaticResource Link}"/></Grid>
+    <Border Style="{StaticResource Card}" Padding="20"><VerticalStackLayout Spacing="12"><Label Text="Bonjour ! Vous souhaitez votre café sur place ou à emporter ?" FontSize="28" FontAttributes="Bold"/><Border Style="{StaticResource SoftCard}" Padding="12,6" HorizontalOptions="Start"><Label Text="··· Texte en cours de mise à jour" Style="{StaticResource Link}"/></Border></VerticalStackLayout></Border>
+    <Button Text="□  Arrêter l’écoute" Style="{StaticResource Cta}"/>
+    <Grid ColumnDefinitions="*,*" ColumnSpacing="12"><Button Text="⧉  Copier" Style="{StaticResource CtaSoft}"/><Button Grid.Column="1" Text="T  Répondre" Style="{StaticResource CtaSoft}" Command="{Binding Go, Source={x:Static v:Nav.I}}" CommandParameter="texte"/></Grid>
+    <Border Style="{StaticResource Card}" BackgroundColor="{StaticResource GreenBg}" Stroke="Transparent"><Label Text="ⓘ Une personne à la fois, près du micro. La transcription peut contenir des erreurs." TextColor="{StaticResource Green}" FontSize="14"/></Border>
+    <Label Text="Exemple de transcription · état d’écoute illustré" Style="{StaticResource Muted}" HorizontalOptions="Center"/>
+  </VerticalStackLayout></ScrollView>
+</ContentPage>

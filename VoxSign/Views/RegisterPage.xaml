@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.Views.RegisterPage">
+  <ScrollView><VerticalStackLayout Padding="20,16" Spacing="14">
+
+    <HorizontalStackLayout Spacing="12"><Border BackgroundColor="{StaticResource Primary}" WidthRequest="56" HeightRequest="56" StrokeThickness="0"><Border.StrokeShape><RoundRectangle CornerRadius="16"/></Border.StrokeShape><Label Text="✋" FontSize="26" HorizontalOptions="Center" VerticalOptions="Center"/></Border><Label Text="VoxSign" FontSize="30" VerticalOptions="Center"/></HorizontalStackLayout>
+    <Label Text="Créons le lien." Style="{StaticResource H1}" FontAttributes="None"/>
+    <Label Text="Un compte pour retrouver vos favoris et échanger avec vos proches." Style="{StaticResource Muted}" FontSize="16"/>
+    <Border Style="{StaticResource SoftCard}" Padding="14,8" HorizontalOptions="Start"><Label Text="🤝 Bienvenue dans VoxSign" Style="{StaticResource Link}"/></Border>
+    <Label Text="Prénom"/><Border Style="{StaticResource Field}"><Entry Text="Daniela"/></Border>
+    <Label Text="Adresse e-mail"/><Border Style="{StaticResource Field}"><Entry Text="danielacledya@gmail.fr" Keyboard="Email"/></Border>
+    <Label Text="Mot de passe"/><Border Style="{StaticResource Field}"><Entry x:Name="Pwd" IsPassword="True" Text="motdepasse12"/></Border>
+    <Label Text="✓ 12 caractères · mot de passe suffisamment long" TextColor="{StaticResource Green}" FontSize="14"/>
+    <Label Text="Votre langue des signes"/>
+    <Border Style="{StaticResource SoftCard}" Padding="16,0" HeightRequest="56"><Picker SelectedIndex="0" TextColor="{StaticResource Primary}"><Picker.ItemsSource><x:Array Type="{x:Type x:String}"><x:String>LSF · Langue des signes française</x:String><x:String>ASL · American Sign Language</x:String></x:Array></Picker.ItemsSource></Picker></Border>
+    <HorizontalStackLayout Spacing="10"><CheckBox IsChecked="True" Color="{StaticResource Primary}"/><Label Text="J’accepte les conditions d’utilisation et la politique de confidentialité." Style="{StaticResource Muted}" WidthRequest="290"/></HorizontalStackLayout>
+    <Button Text="→  Créer mon compte" Style="{StaticResource Cta}" Command="{Binding Go, Source={x:Static v:Nav.I}}" CommandParameter="//main/home"/>
+    <Label Text="Déjà un compte ? Se connecter" Style="{StaticResource Link}" HorizontalOptions="Center"><Label.GestureRecognizers><TapGestureRecognizer Command="{Binding Go, Source={x:Static v:Nav.I}}" CommandParameter=".."/></Label.GestureRecognizers></Label>
+    <Label Text="Illustrations pédagogiques : un appui pour communiquer, pas une traduction LSF certifiée." Style="{StaticResource Muted}" HorizontalTextAlignment="Center"/>
+  </VerticalStackLayout></ScrollView>
+</ContentPage>

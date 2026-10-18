@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.Views.SigneDetailPage">
+  <ScrollView><VerticalStackLayout Padding="20,16" Spacing="14">
+    <c:Header Title="Fiche" Subtitle="Dictionnaire" Right="Partager"/>
+    <Border Style="{StaticResource Photo}" HeightRequest="240"><Image x:Name="Img" Aspect="AspectFill"/></Border>
+    <Grid ColumnDefinitions="*,Auto"><Label x:Name="WordLbl" Style="{StaticResource H1}" FontSize="28"/><Label x:Name="FavLbl" Grid.Column="1" TextColor="{StaticResource Primary}" FontSize="28"><Label.GestureRecognizers><TapGestureRecognizer Tapped="OnFav"/></Label.GestureRecognizers></Label></Grid>
+    <Label x:Name="CatLbl" Style="{StaticResource Muted}"/>
+    <Label x:Name="HintLbl" Style="{StaticResource Muted}" FontSize="16"/>
+    <Border Style="{StaticResource Card}"><VerticalStackLayout Spacing="12"><Label Text="Ce qu’il faut observer" FontSize="18"/><Label Text="✋  La position et l’orientation des mains"/><Label Text="✥  Le mouvement, son trajet et son rythme"/><Label Text="☺  L’expression du visage et le regard"/><Label Text="Pour apprendre le geste exact, faites-vous accompagner par une personne compétente en LSF." Style="{StaticResource Muted}"/></VerticalStackLayout></Border>
+    <Border Style="{StaticResource Card}"><VerticalStackLayout><Label Text="DANS UN ÉCHANGE" Style="{StaticResource Link}" FontSize="13"/><Label x:Name="ExLbl" FontSize="18"/></VerticalStackLayout></Border>
+    <Button x:Name="SpeakBtn" Style="{StaticResource CtaSoft}" Clicked="OnSpeak"/>
+    <c:Disclaimer/>
+  </VerticalStackLayout></ScrollView>
+</ContentPage>

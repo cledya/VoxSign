@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.Views.EchangesPage">
+  <ScrollView><VerticalStackLayout Padding="20,16" Spacing="14">
+
+    <Grid ColumnDefinitions="*,Auto"><VerticalStackLayout><Label Text="Avec Alex" Style="{StaticResource H1}" FontSize="30"/><Label Text="Contact ajouté · en ligne" Style="{StaticResource Muted}"/></VerticalStackLayout><Label Grid.Column="1" Text="👤 Profil" Style="{StaticResource Muted}"/></Grid>
+    <Grid ColumnDefinitions="Auto,*,Auto"><Border Style="{StaticResource SoftCard}" Padding="12,6"><Label Text="👥 Mes proches · 3" Style="{StaticResource Link}"/></Border><Border Grid.Column="2" Style="{StaticResource Card}" Padding="12,8"><Label Text="➕ Inviter un proche" Style="{StaticResource Link}"/></Border></Grid>
+    <Label Text="Aujourd’hui · 9:38" Style="{StaticResource Muted}" HorizontalOptions="Center"/>
+    <Border Style="{StaticResource Card}" HorizontalOptions="Start" MaximumWidthRequest="290"><VerticalStackLayout Spacing="6"><Label Text="Je t’attends au café. Tu commandes quoi ?" FontSize="18"/><Label Text="Alex · 9:38" Style="{StaticResource Muted}"/></VerticalStackLayout></Border>
+    <Border Style="{StaticResource Card}" HorizontalOptions="End" MaximumWidthRequest="330"><VerticalStackLayout Spacing="8"><Label Text="✋ Support illustré · LSF à valider" Style="{StaticResource Link}"/><Label Text="Bonjour, je voudrais un café, s’il vous plaît." FontSize="18"/>
+      <Grid ColumnDefinitions="*,*,*" ColumnSpacing="6"><Border Style="{StaticResource Photo}" HeightRequest="80"><Image Source="bonjour.jpg" Aspect="AspectFill"/></Border><Border Grid.Column="1" Style="{StaticResource Photo}" HeightRequest="80"><Image Source="cafe.jpg" Aspect="AspectFill"/></Border><Border Grid.Column="2" Style="{StaticResource Photo}" HeightRequest="80"><Image Source="sil_vous_plait.jpg" Aspect="AspectFill"/></Border></Grid>
+      <Label Text="Vous · 9:39 · Lu par Alex" Style="{StaticResource Link}" FontAttributes="None"/></VerticalStackLayout></Border>
+    <Border Style="{StaticResource Card}" HorizontalOptions="Start" MaximumWidthRequest="290"><VerticalStackLayout Spacing="6"><Label Text="D’accord, je te le prends à emporter !" FontSize="18"/><Label Text="Alex · 9:40" Style="{StaticResource Muted}"/></VerticalStackLayout></Border>
+    <Border Style="{StaticResource Card}" HorizontalOptions="End" Padding="10"><Grid ColumnDefinitions="Auto,Auto" ColumnSpacing="14"><Border Style="{StaticResource Photo}" WidthRequest="90" HeightRequest="90"><Image Source="merci.jpg" Aspect="AspectFill"/></Border><VerticalStackLayout Grid.Column="1" VerticalOptions="Center"><Label Text="Merci !" FontSize="22"/><Label Text="Vous · 9:41 · Illustration LSF" Style="{StaticResource Muted}"/></VerticalStackLayout></Grid></Border>
+    <Border Style="{StaticResource Card}" Padding="8,6"><Grid ColumnDefinitions="*,Auto"><Entry Placeholder="Écrire un message…"/><Button Grid.Column="1" Text="↑ Envoyer" Style="{StaticResource Cta}" HeightRequest="48" FontSize="13"/></Grid></Border>
+    <Button Text="⤴  Partager une phrase" Style="{StaticResource CtaSoft}" BackgroundColor="White"/>
+    <Label Text="Exemple d’échange · signes illustrés non certifiés. Les échanges à distance nécessitent Internet." Style="{StaticResource Muted}" HorizontalTextAlignment="Center"/>
+  </VerticalStackLayout></ScrollView>
+</ContentPage>

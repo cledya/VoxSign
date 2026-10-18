@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="VoxSign.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:VoxSign"
-    Title="VoxSign">
-
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.AppShell" xmlns:views="clr-namespace:Voxsign.Views"
+       FlyoutBehavior="Disabled" BackgroundColor="White"
+       Shell.TabBarBackgroundColor="White" Shell.TabBarTitleColor="{StaticResource Primary}"
+       Shell.TabBarUnselectedColor="{StaticResource Muted}">
+  <ShellContent Route="login" ContentTemplate="{DataTemplate views:LoginPage}"/>
+  <TabBar Route="main">
+    <ShellContent Title="Accueil" Icon="home.png" Route="home" ContentTemplate="{DataTemplate views:HomePage}"/>
+    <ShellContent Title="Dictionnaire" Icon="book.png" Route="dico" ContentTemplate="{DataTemplate views:DictionnairePage}"/>
+    <ShellContent Title="Favoris" Icon="heart.png" Route="favoris" ContentTemplate="{DataTemplate views:FavorisPage}"/>
+    <ShellContent Title="Échanges" Icon="chat.png" Route="echanges" ContentTemplate="{DataTemplate views:EchangesPage}"/>
+  </TabBar>
 </Shell>

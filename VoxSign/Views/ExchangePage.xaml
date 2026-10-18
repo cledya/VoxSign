@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="Voxsign.Views.ExchangePage" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:c="clr-namespace:Voxsign.Controls" xmlns:h="clr-namespace:Voxsign.Helpers">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView x:Name="Scroller">
+            <VerticalStackLayout Padding="20,12,20,20" Spacing="16">
+
+                <c:ScreenHeader Title="Avec Alex" Subtitle="Contact ajouté · en ligne"
+                                ActionIcon="{x:Static h:Icons.PersonOutline}" ActionText="Profil" />
+
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                    <c:Chip Icon="{x:Static h:Icons.Group}" Text="Mes proches · 3" />
+                    <Border Grid.Column="2" Style="{StaticResource Card}" Padding="14,10" StrokeShape="RoundRectangle 16">
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="{x:Static h:Icons.PersonAdd}" Style="{StaticResource Icon}" FontSize="22" />
+                            <Label Text="Inviter un proche" Style="{StaticResource Link}" FontFamily="InterMedium" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                    </Border>
+                </Grid>
+                <BoxView HeightRequest="1" Color="{StaticResource Line}" Margin="0,-6,0,0" />
+
+                <Label Text="Aujourd’hui · 9:38" Style="{StaticResource Muted}" HorizontalOptions="Center" FontSize="15" />
+
+                <VerticalStackLayout x:Name="Messages" Spacing="16">
+
+                    <Border Style="{StaticResource Card}" Padding="20,16" StrokeShape="RoundRectangle 22" HorizontalOptions="Start" MaximumWidthRequest="300">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="Je t’attends au café. Tu commandes quoi ?" FontSize="20" />
+                            <Label Text="Alex · 9:38" Style="{StaticResource Muted}" FontSize="14" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Style="{StaticResource Card}" Padding="16" StrokeShape="RoundRectangle 22" HorizontalOptions="End" MaximumWidthRequest="330">
+                        <VerticalStackLayout Spacing="10">
+                            <HorizontalStackLayout Spacing="8">
+                                <Label Text="{x:Static h:Icons.Hand}" Style="{StaticResource Icon}" FontSize="20" />
+                                <Label Text="Support illustré · LSF à valider" TextColor="{StaticResource Primary}" FontSize="15" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                            <Label Text="Bonjour, je voudrais un café, s’il vous plaît." FontSize="20" />
+                            <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8">
+                                <VerticalStackLayout Spacing="4">
+                                    <Border HeightRequest="92" StrokeThickness="0" StrokeShape="RoundRectangle 14"><Image Source="bonjour.jpg" Aspect="AspectFill" /></Border>
+                                    <Label Text="Bonjour" FontFamily="InterBold" FontSize="13" HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="1" Spacing="4">
+                                    <Border HeightRequest="92" StrokeThickness="0" StrokeShape="RoundRectangle 14"><Image Source="cafe.jpg" Aspect="AspectFill" /></Border>
+                                    <Label Text="Café" FontFamily="InterBold" FontSize="13" HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+                                <VerticalStackLayout Grid.Column="2" Spacing="4">
+                                    <Border HeightRequest="92" StrokeThickness="0" StrokeShape="RoundRectangle 14"><Image Source="silvousplait.jpg" Aspect="AspectFill" /></Border>
+                                    <Label Text="S’il vous plaît" FontFamily="InterBold" FontSize="13" HorizontalOptions="Center" />
+                                </VerticalStackLayout>
+                            </Grid>
+                            <Label Text="Vous · 9:39 · Lu par Alex" TextColor="{StaticResource Primary}" FontSize="14" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Style="{StaticResource Card}" Padding="20,16" StrokeShape="RoundRectangle 22" HorizontalOptions="Start" MaximumWidthRequest="300">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="D’accord, je te le prends à emporter !" FontSize="20" />
+                            <Label Text="Alex · 9:40" Style="{StaticResource Muted}" FontSize="14" />
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Style="{StaticResource Card}" Padding="12" StrokeShape="RoundRectangle 22" HorizontalOptions="End">
+                        <HorizontalStackLayout Spacing="16">
+                            <Border WidthRequest="104" HeightRequest="104" StrokeThickness="0" StrokeShape="RoundRectangle 16"><Image Source="merci.jpg" Aspect="AspectFill" /></Border>
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="4">
+                                <Label Text="Merci !" FontSize="26" />
+                                <Label Text="Vous · 9:41 ·" Style="{StaticResource Muted}" FontSize="15" />
+                                <Label Text="Illustration LSF" Style="{StaticResource Muted}" FontSize="15" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                    </Border>
+                </VerticalStackLayout>
+
+                <Border Style="{StaticResource Card}" Padding="20,8,8,8" StrokeShape="RoundRectangle 22">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                        <Entry x:Name="MessageEntry" Placeholder="Écrire un message…" ReturnType="Send" Completed="OnSend" />
+                        <Border Grid.Column="1" WidthRequest="84" HeightRequest="64" BackgroundColor="{StaticResource Primary}" StrokeThickness="0" StrokeShape="RoundRectangle 16">
+                            <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnSendTapped" /></Border.GestureRecognizers>
+                            <VerticalStackLayout VerticalOptions="Center">
+                                <Label Text="{x:Static h:Icons.Arrow}" Style="{StaticResource Icon}" TextColor="White" Rotation="-90" HorizontalOptions="Center" FontSize="24" />
+                                <Label Text="Envoyer" TextColor="White" FontFamily="InterMedium" FontSize="13" HorizontalOptions="Center" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <c:ActionButton Text="Partager une phrase" Icon="{x:Static h:Icons.Share}" Kind="Outline" HeightRequest="60" Clicked="OnSharePhrase" />
+
+                <Label Text="Exemple d’échange · signes illustrés non certifiés. Les échanges à distance nécessitent Internet." Style="{StaticResource Small}" />
+            </VerticalStackLayout>
+        </ScrollView>
+        <c:BottomNavBar Grid.Row="1" Active="exchange" />
+    </Grid>
+</ContentPage>

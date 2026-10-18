@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="Voxsign.Views.OfflinePage" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:c="clr-namespace:Voxsign.Controls" xmlns:h="clr-namespace:Voxsign.Helpers">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView>
+            <VerticalStackLayout Padding="20,12,20,20" Spacing="16">
+
+                <c:ScreenHeader Title="Sans connexion" Subtitle="Préparer vos essentiels à l’avance"
+                                ActionIcon="{x:Static h:Icons.More}" ActionText="Options" />
+
+                <Border Style="{StaticResource Card}" Padding="22,20" StrokeShape="RoundRectangle 24">
+                    <VerticalStackLayout Spacing="12">
+                        <HorizontalStackLayout Spacing="12">
+                            <Label Text="{x:Static h:Icons.Cloud}" Style="{StaticResource Icon}" FontSize="28" />
+                            <Label Text="2 packs prêts à vous accompagner" FontSize="21" VerticalOptions="Center" />
+                        </HorizontalStackLayout>
+                        <Label Text="48 signes · 20 phrases · 40 Mo utilisés" Style="{StaticResource Muted}" FontSize="16" />
+                        <ProgressBar Progress="0.33" ProgressColor="{StaticResource Primary}" BackgroundColor="#D9DCE8" HeightRequest="8" />
+                    </VerticalStackLayout>
+                </Border>
+
+                <Label Text="Vos packs téléchargés" Style="{StaticResource Section}" Margin="0,6,0,0" />
+
+                <Border Style="{StaticResource Card}" Padding="20,18" StrokeShape="RoundRectangle 24">
+                    <VerticalStackLayout Spacing="16">
+                        <HorizontalStackLayout Spacing="16">
+                            <Border WidthRequest="60" HeightRequest="60" Style="{StaticResource Card}" Padding="0" StrokeShape="RoundRectangle 16">
+                                <Label Text="{x:Static h:Icons.Heart}" Style="{StaticResource Icon}" FontSize="30" HorizontalOptions="Center" />
+                            </Border>
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                <Label Text="Les essentiels" FontSize="22" />
+                                <Label Text="30 signes · 12 phrases" Style="{StaticResource Muted}" FontSize="15" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="Auto,*">
+                            <c:Chip Icon="{x:Static h:Icons.CheckOutline}" Text="Téléchargé · 24 Mo" BackgroundColor="White" />
+                            <Label Grid.Column="1" Text="Gérer" Style="{StaticResource Link}" FontFamily="InterBold" HorizontalOptions="End" VerticalOptions="Center" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Border Style="{StaticResource Card}" Padding="20,18" StrokeShape="RoundRectangle 24">
+                    <VerticalStackLayout Spacing="16">
+                        <HorizontalStackLayout Spacing="16">
+                            <Border WidthRequest="60" HeightRequest="60" Style="{StaticResource Card}" Padding="0" StrokeShape="RoundRectangle 16">
+                                <Label Text="{x:Static h:Icons.Cup}" Style="{StaticResource Icon}" FontSize="30" HorizontalOptions="Center" />
+                            </Border>
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                <Label Text="Au quotidien" FontSize="22" />
+                                <Label Text="18 signes · 8 phrases" Style="{StaticResource Muted}" FontSize="15" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="Auto,*">
+                            <c:Chip Icon="{x:Static h:Icons.CheckOutline}" Text="Téléchargé · 16 Mo" BackgroundColor="White" />
+                            <Label Grid.Column="1" Text="Gérer" Style="{StaticResource Link}" FontFamily="InterBold" HorizontalOptions="End" VerticalOptions="Center" />
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <Grid ColumnDefinitions="*,Auto" Margin="0,6,0,0">
+                    <Label Text="À ajouter" Style="{StaticResource Section}" />
+                    <Label Grid.Column="1" Text="Via Wi-Fi" Style="{StaticResource Link}" FontFamily="InterBold" VerticalOptions="Center" />
+                </Grid>
+
+                <Border Style="{StaticResource Card}" Padding="20,18" StrokeShape="RoundRectangle 24">
+                    <VerticalStackLayout Spacing="16">
+                        <HorizontalStackLayout Spacing="16">
+                            <Border WidthRequest="60" HeightRequest="60" Style="{StaticResource Card}" Padding="0" StrokeShape="RoundRectangle 16">
+                                <Label Text="{x:Static h:Icons.Heart}" Style="{StaticResource Icon}" FontSize="30" HorizontalOptions="Center" />
+                            </Border>
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="2">
+                                <Label Text="Santé &amp; besoins" FontSize="22" />
+                                <Label Text="24 signes · 12 phrases" Style="{StaticResource Muted}" FontSize="15" />
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
+                        <Grid ColumnDefinitions="Auto,*">
+                            <c:Chip Icon="{x:Static h:Icons.Download}" Text="18 Mo" BackgroundColor="White" />
+                            <Label Grid.Column="1" Text="Télécharger" Style="{StaticResource Link}" FontFamily="InterBold" HorizontalOptions="End" VerticalOptions="Center">
+                                <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnDownload" /></Label.GestureRecognizers>
+                            </Label>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <c:InfoCard Kind="White" Text="Hors connexion : consultez vos packs, écrivez et montrez une phrase. La reconnaissance vocale et les échanges nécessitent Internet." />
+                <Label Text="Lecture vocale hors ligne : selon les voix déjà installées sur votre téléphone. Les favoris restent consultables." Style="{StaticResource Muted}" FontSize="15" />
+            </VerticalStackLayout>
+        </ScrollView>
+        <c:BottomNavBar Grid.Row="1" Active="home" />
+    </Grid>
+</ContentPage>

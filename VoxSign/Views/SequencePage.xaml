@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.Views.SequencePage">
+  <ScrollView><VerticalStackLayout Padding="20,16" Spacing="14">
+    <c:Header Title="Séquence illustrée" Subtitle="Repères illustrés · LSF"/>
+    <Label Text="VOTRE PHRASE" Style="{StaticResource Muted}"/>
+    <Label x:Name="PhraseLbl" FontSize="18"/>
+    <Border Style="{StaticResource Card}"><VerticalStackLayout Spacing="10">
+      <Grid ColumnDefinitions="Auto,*,Auto"><Border Style="{StaticResource SoftCard}" Padding="12,6"><Label x:Name="Counter" Style="{StaticResource Link}"/></Border>
+        <Label x:Name="WordLbl" Grid.Column="1" Style="{StaticResource H2}" HorizontalOptions="Center"/>
+        <Label x:Name="FavLbl" Grid.Column="2" Text="♡" TextColor="{StaticResource Primary}" FontSize="22"><Label.GestureRecognizers><TapGestureRecognizer Tapped="OnFav"/></Label.GestureRecognizers></Label></Grid>
+      <Border Style="{StaticResource Photo}"><c:SignPlayer x:Name="Player"/></Border>
+      <Label Text="Illustration indicative · ouvrez la fiche pour apprendre" Style="{StaticResource Muted}" HorizontalOptions="Center"/></VerticalStackLayout></Border>
+    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8"><Button Text="←" Style="{StaticResource CtaSoft}" Clicked="OnPrev"/><Button Grid.Column="1" Text="▶ Animer" Style="{StaticResource Cta}" Clicked="OnPlay"/><Button Grid.Column="2" Text="→" Style="{StaticResource CtaSoft}" Clicked="OnNext"/></Grid>
+    <ScrollView Orientation="Horizontal"><HorizontalStackLayout x:Name="Thumbs" Spacing="8"/></ScrollView>
+    <Label Text="Ces repères de sens ne reproduisent pas la grammaire ni l’ordre d’une phrase en LSF." Style="{StaticResource Muted}"/>
+    <Button Text="🔊  Lire la phrase" Style="{StaticResource CtaSoft}" Clicked="OnSpeak"/>
+    <Button Text="⤴  Partager le support" Style="{StaticResource Cta}" Clicked="OnShare"/>
+    <c:Disclaimer/>
+  </VerticalStackLayout></ScrollView>
+</ContentPage>

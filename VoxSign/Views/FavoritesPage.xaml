@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage x:Class="Voxsign.Views.FavoritesPage" xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:c="clr-namespace:Voxsign.Controls" xmlns:h="clr-namespace:Voxsign.Helpers">
+    <Grid RowDefinitions="*,Auto">
+        <ScrollView>
+            <VerticalStackLayout Padding="20,12,20,20" Spacing="16">
+
+                <c:ScreenHeader ShowBack="False" Title="Vos favoris" Subtitle="Les repères qui vous ressemblent"
+                                ActionIcon="{x:Static h:Icons.Tune}" ActionText="Filtres" />
+
+                <Border Style="{StaticResource Field}" HeightRequest="62" StrokeShape="RoundRectangle 20">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+                        <Label Text="{x:Static h:Icons.Search}" Style="{StaticResource Icon}" TextColor="{StaticResource Muted}" />
+                        <Entry Grid.Column="1" Placeholder="Rechercher dans mes favoris" />
+                    </Grid>
+                </Border>
+
+                <Grid x:Name="FilterGrid" ColumnDefinitions="*,*,*" ColumnSpacing="12" />
+
+                <VerticalStackLayout x:Name="SignsSection" Spacing="14">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Signes illustrés" Style="{StaticResource Section}" />
+                        <Label x:Name="SignsCount" Grid.Column="1" Text="2 enregistrés" Style="{StaticResource Link}" FontFamily="InterBold" VerticalOptions="Center" />
+                    </Grid>
+                    <FlexLayout x:Name="SignsLayout" Wrap="Wrap" JustifyContent="SpaceBetween" AlignItems="Start">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Border FlexLayout.Basis="48%" Style="{StaticResource Card}" Padding="12" StrokeShape="RoundRectangle 24" Margin="0,0,0,10">
+                                    <Border.GestureRecognizers><TapGestureRecognizer Tapped="OnSignTapped" /></Border.GestureRecognizers>
+                                    <VerticalStackLayout Spacing="10">
+                                        <Border HeightRequest="150" StrokeThickness="0" StrokeShape="RoundRectangle 18">
+                                            <Image Source="{Binding Image}" Aspect="AspectFill" />
+                                        </Border>
+                                        <Grid ColumnDefinitions="*,Auto">
+                                            <Label Text="{Binding Name}" FontFamily="InterBold" FontSize="21" />
+                                            <Label Grid.Column="1" Text="{Binding BookmarkIcon}" Style="{StaticResource Icon}">
+                                                <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnSignBookmark" /></Label.GestureRecognizers>
+                                            </Label>
+                                        </Grid>
+                                        <Label Text="{Binding FavMeta}" Style="{StaticResource Muted}" FontSize="14" />
+                                    </VerticalStackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </FlexLayout>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout x:Name="PhrasesSection" Spacing="14">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Phrases enregistrées" Style="{StaticResource Section}" />
+                        <Label x:Name="PhrasesCount" Grid.Column="1" Text="3 phrases" Style="{StaticResource Link}" FontFamily="InterBold" VerticalOptions="Center" />
+                    </Grid>
+                    <VerticalStackLayout x:Name="PhraseList" Spacing="14">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource Card}" Padding="20,18" StrokeShape="RoundRectangle 22">
+                                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                                        <VerticalStackLayout Spacing="8">
+                                            <Label Text="{Binding Text}" FontSize="21" />
+                                            <Label Text="{Binding FavMeta}" Style="{StaticResource Muted}" FontSize="15" />
+                                        </VerticalStackLayout>
+                                        <Label Grid.Column="1" Text="{Binding BookmarkIcon}" Style="{StaticResource Icon}" FontSize="30" VerticalOptions="Center">
+                                            <Label.GestureRecognizers><TapGestureRecognizer Tapped="OnPhraseBookmark" /></Label.GestureRecognizers>
+                                        </Label>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+
+                <c:InfoCard Kind="Accent" Icon="{x:Static h:Icons.BookmarkBorder}" Text="Retrouvez vos phrases en un geste. Le marque-page permet de retirer un favori." />
+            </VerticalStackLayout>
+        </ScrollView>
+        <c:BottomNavBar Grid.Row="1" Active="favorites" />
+    </Grid>
+</ContentPage>

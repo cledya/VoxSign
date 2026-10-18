@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.Views.FavorisPage">
+  <ScrollView><VerticalStackLayout Padding="20,16" Spacing="14">
+    <Label Text="Vos favoris" Style="{StaticResource H1}" FontSize="30"/>
+    <Label x:Name="Total" Style="{StaticResource Muted}"/>
+    <Label Text="Signes illustrés" Style="{StaticResource H2}" FontSize="20"/>
+    <FlexLayout x:Name="SignsBox" Wrap="Wrap" JustifyContent="SpaceBetween"/>
+    <Label Text="Phrases enregistrées" Style="{StaticResource H2}" FontSize="20"/>
+    <VerticalStackLayout x:Name="PhrasesBox" Spacing="12"/>
+    <Label Text="Les favoris restent consultables hors connexion." Style="{StaticResource Link}" FontAttributes="None"/>
+  </VerticalStackLayout></ScrollView>
+</ContentPage>

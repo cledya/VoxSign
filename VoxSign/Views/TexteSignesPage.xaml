@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.Views.TexteSignesPage">
+  <ScrollView><VerticalStackLayout Padding="20,16" Spacing="14">
+
+    <c:Header Title="Texte → signes" Subtitle="Écrire pour échanger · LSF"/>
+    <HorizontalStackLayout Spacing="10"><Border Style="{StaticResource SoftCard}" Padding="14,6"><Label Text="Français" Style="{StaticResource Link}"/></Border><Label Text="→" VerticalOptions="Center"/><Border Style="{StaticResource SoftCard}" Padding="14,6"><Label Text="✋ LSF illustrée" Style="{StaticResource Link}"/></Border></HorizontalStackLayout>
+    <Label Text="Votre message"/>
+    <Border Style="{StaticResource Card}" Stroke="{StaticResource Primary}" StrokeThickness="2"><VerticalStackLayout><Editor x:Name="Msg" Text="Bonjour, je voudrais un café, s’il vous plaît." MaxLength="300" FontSize="22" AutoSize="TextChanges" TextColor="{StaticResource Ink}"/>
+      <Grid ColumnDefinitions="*,Auto"><Label Style="{StaticResource Muted}" Text="{Binding Text.Length, Source={x:Reference Msg}, StringFormat='{0} / 300 caractères'}"/><Label Grid.Column="1" Text="Effacer" Style="{StaticResource Link}"><Label.GestureRecognizers><TapGestureRecognizer Tapped="OnClear"/></Label.GestureRecognizers></Label></Grid></VerticalStackLayout></Border>
+    <Button Text="✋  Illustrer en LSF" Style="{StaticResource Cta}" Clicked="OnIllustrer"/>
+    <Button Text="🔊  Lire à voix haute" Style="{StaticResource CtaSoft}" Clicked="OnSpeak"/>
+    <Label Text="Synthèse vocale · français · vitesse normale" Style="{StaticResource Muted}" HorizontalOptions="Center"/>
+    <Grid ColumnDefinitions="*,Auto"><Label Text="Aperçu des repères" Style="{StaticResource H2}" FontSize="20"/><Label Grid.Column="1" Text="Voir la séquence" Style="{StaticResource Link}"><Label.GestureRecognizers><TapGestureRecognizer Command="{Binding Go, Source={x:Static v:Nav.I}}" CommandParameter="sequence"/></Label.GestureRecognizers></Label></Grid>
+    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="8" RowDefinitions="110,Auto">
+      <Border Style="{StaticResource Photo}"><Image Source="bonjour.jpg" Aspect="AspectFill"/></Border><Border Grid.Column="1" Style="{StaticResource Photo}"><Image Source="cafe.jpg" Aspect="AspectFill"/></Border><Border Grid.Column="2" Style="{StaticResource Photo}"><Image Source="sil_vous_plait.jpg" Aspect="AspectFill"/></Border>
+      <Label Grid.Row="1" Text="Bonjour" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center"/><Label Grid.Row="1" Grid.Column="1" Text="Café" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center"/><Label Grid.Row="1" Grid.Column="2" Text="S’il vous plaît" FontAttributes="Bold" FontSize="14" HorizontalOptions="Center"/></Grid>
+    <Label x:Name="FavLbl" Text="♡  Ajouter cette phrase aux favoris" Style="{StaticResource Link}" FontSize="16" HorizontalOptions="Center"><Label.GestureRecognizers><TapGestureRecognizer Tapped="OnFav"/></Label.GestureRecognizers></Label>
+    <c:Disclaimer/>
+  </VerticalStackLayout></ScrollView>
+</ContentPage>
