@@ -44,7 +44,7 @@ public partial class SequencePage : ContentPage
     }
     void OnFav(object? s, TappedEventArgs e)
     { if (L.Count > 0) FavLbl.Text = Favorites.Toggle(L[i].Id) ? "♥" : "♡"; }
-    async void OnSpeak(object? s, EventArgs e) => await Speech.SpeakAsync(SequenceState.Text);
+    async void OnSpeak(object? s, EventArgs e) => await Voice.SpeakAsync(SequenceState.Text);
     async void OnShare(object? s, EventArgs e) =>
         await Share.Default.RequestAsync(new ShareTextRequest { Text = $"{SequenceState.Text}\nRepères : {string.Join(" → ", L.Select(x => x.Word))}", Title = "VoxSign" });
 }

@@ -1,5 +1,6 @@
 namespace Voxsign.Controls;
-public class SignPlayer : Grid
+
+public partial class SignPlayer : Grid
 {
     readonly Image a = new() { Aspect = Aspect.AspectFill };
     readonly Image b = new() { Aspect = Aspect.AspectFill, Opacity = 0 };
@@ -10,7 +11,7 @@ public class SignPlayer : Grid
     {
         var (on, off) = front ? (b, a) : (a, b);
         on.Source = src; on.Scale = 1.1;
-        await Task.WhenAll(on.FadeTo(1, 500), off.FadeTo(0, 500), on.ScaleTo(1, 500, Easing.CubicOut));
+        await Task.WhenAll(on.FadeToAsync(1, 500), off.FadeToAsync(0, 500), on.ScaleToAsync(1, 500, Easing.CubicOut));
         front = !front;
     }
 }

@@ -6,6 +6,6 @@ public partial class VoixTextePage : ContentPage
     {
         base.OnAppearing();
         if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
-            await DisplayAlert("Hors connexion", "La reconnaissance vocale nécessite Internet. Vos packs et favoris restent disponibles.", "OK");
+            await DisplayAlertAsync("Hors connexion", "La reconnaissance vocale nécessite Internet. Vos packs et favoris restent disponibles.", "OK");
     }
 }

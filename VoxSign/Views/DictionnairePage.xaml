@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.Views.DictionnairePage">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls;assembly=VoxSign" x:Class="Voxsign.Views.DictionnairePage">
   <ScrollView><VerticalStackLayout Padding="20,16" Spacing="14">
     <Label Text="Dictionnaire" Style="{StaticResource H1}" FontSize="30"/>
-    <Label Text="Découvrir les repères en LSF" Style="{StaticResource Muted}"/>
+    <Label Text="Découvrir les repères en LSF" Style="{StaticResource MutedLabel}"/>
     <Border Style="{StaticResource Field}"><Grid ColumnDefinitions="Auto,*" ColumnSpacing="10"><Label Text="🔍" VerticalOptions="Center"/><Entry x:Name="Search" Grid.Column="1" Placeholder="Rechercher un signe" TextChanged="OnSearch"/></Grid></Border>
     <ScrollView Orientation="Horizontal"><HorizontalStackLayout x:Name="Chips" Spacing="8"/></ScrollView>
     <Grid ColumnDefinitions="*,Auto"><Label Text="Les essentiels" Style="{StaticResource H2}"/><Label x:Name="Count" Grid.Column="1" Style="{StaticResource Link}"/></Grid>

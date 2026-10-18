@@ -70,4 +70,17 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	<MauiXaml Update="Views\RegisterPage.xaml">
+	<Generator>MSBuild:Compile</Generator>
+  </MauiXaml>
+  <MauiXaml Update="Views\TexteSignesPage.xaml">
+	<Generator>MSBuild:Compile</Generator>
+  </MauiXaml>
+  <!-- Force runtime inflation for all view XAML to avoid SourceGen type resolution issues during development -->
+  <MauiXaml Update="Views\**\*.xaml">
+	<Inflator>Runtime</Inflator>
+  </MauiXaml>
+	</ItemGroup>
+
 </Project>

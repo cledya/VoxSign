@@ -17,7 +17,7 @@ public partial class TexteSignesPage : ContentPage
         SequenceState.Signs = AppData.Match(SequenceState.Text);
         await Shell.Current.GoToAsync("sequence");
     }
-    async void OnSpeak(object? s, EventArgs e) => await Speech.SpeakAsync(Msg.Text ?? "");
+    async void OnSpeak(object? s, EventArgs e) => await Voice.SpeakAsync(Msg.Text ?? "");
     void OnClear(object? s, TappedEventArgs e) { Msg.Text = ""; SequenceState.Text = ""; }
     void OnFav(object? s, TappedEventArgs e)
     {

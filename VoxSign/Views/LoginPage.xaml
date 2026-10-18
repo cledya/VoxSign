@@ -1,20 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.Views.LoginPage">
-  <ScrollView><VerticalStackLayout Padding="20,16" Spacing="14">
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:v="clr-namespace:Voxsign"
+             x:Class="Voxsign.Views.LoginPage">
+  <ScrollView>
+    <VerticalStackLayout Padding="20,16" Spacing="14">
 
-    <HorizontalStackLayout Spacing="12"><Border BackgroundColor="{StaticResource Primary}" WidthRequest="56" HeightRequest="56" StrokeThickness="0"><Border.StrokeShape><RoundRectangle CornerRadius="16"/></Border.StrokeShape><Label Text="✋" FontSize="26" HorizontalOptions="Center" VerticalOptions="Center"/></Border>
-      <Label Text="VoxSign" FontSize="30" VerticalOptions="Center"/><Border Style="{StaticResource SoftCard}" Padding="12,4" VerticalOptions="Center"><Label Text="LSF" Style="{StaticResource Link}"/></Border></HorizontalStackLayout>
-    <Border Style="{StaticResource Photo}" HeightRequest="190"><Image Source="hero.jpg" Aspect="AspectFill"/></Border>
-    <Label Text="Se comprendre, simplement." Style="{StaticResource H1}" FontAttributes="None"/>
-    <Label Text="Du texte, de la voix et des signes illustrés pour créer le lien." Style="{StaticResource Muted}" FontSize="16"/>
-    <Label Text="Adresse e-mail"/>
-    <Border Style="{StaticResource Field}"><Grid ColumnDefinitions="Auto,*" ColumnSpacing="12"><Label Text="✉" VerticalOptions="Center"/><Entry Grid.Column="1" Text="danielacledya@gmail.fr" Keyboard="Email"/></Grid></Border>
-    <Label Text="Mot de passe"/>
-    <Border Style="{StaticResource Field}"><Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12"><Label Text="🔒" VerticalOptions="Center"/><Entry x:Name="Pwd" Grid.Column="1" IsPassword="True" Text="motdepasse12"/><Label Grid.Column="2" Text="👁" VerticalOptions="Center"/></Grid></Border>
-    <Label Text="Mot de passe oublié ?" Style="{StaticResource Link}" HorizontalOptions="End"/>
-    <Button Text="→  Se connecter" Style="{StaticResource Cta}" Command="{Binding Go, Source={x:Static v:Nav.I}}" CommandParameter="//main/home"/>
-    <HorizontalStackLayout HorizontalOptions="Center" Spacing="4"><Label Text="Première visite ?" Style="{StaticResource Muted}"/><Label Text="Créer un compte" Style="{StaticResource Link}"><Label.GestureRecognizers><TapGestureRecognizer Command="{Binding Go, Source={x:Static v:Nav.I}}" CommandParameter="register"/></Label.GestureRecognizers></Label></HorizontalStackLayout>
-    <Button Text="Explorer sans compte" Style="{StaticResource CtaSoft}" Command="{Binding Go, Source={x:Static v:Nav.I}}" CommandParameter="//main/home"/>
-    <Label Text="🛡  Votre façon de communiquer vous appartient. Vos échanges restent privés." Style="{StaticResource Muted}"/>
-  </VerticalStackLayout></ScrollView>
+      <HorizontalStackLayout Spacing="12">
+                <Image Source="logo.png" WidthRequest="56" HeightRequest="56"/>
+                <Label Text="VoxSign" FontSize="30" VerticalOptions="Center"/>
+        <Border Style="{StaticResource SoftCard}" Padding="12,4" VerticalOptions="Center">
+          <Label Text="LSF" Style="{StaticResource Link}"/>
+        </Border>
+      </HorizontalStackLayout>
+
+      <Border Style="{StaticResource Photo}" HeightRequest="190">
+        <Image Source="hero.jpg" Aspect="AspectFill"/>
+      </Border>
+
+      <Label Text="Se comprendre, simplement." Style="{StaticResource H1}" FontAttributes="None"/>
+      <Label Text="Du texte, de la voix et des signes illustrés pour créer le lien." Style="{StaticResource MutedText}" FontSize="16"/>
+
+      <Label Text="Adresse e-mail"/>
+      <Border Style="{StaticResource Field}">
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+          <Label Text="✉" VerticalOptions="Center"/>
+          <Entry Grid.Column="1" Text="danielacledya@gmail.fr" Keyboard="Email"/>
+        </Grid>
+      </Border>
+
+      <Label Text="Mot de passe"/>
+      <Border Style="{StaticResource Field}">
+        <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+          <Label Text="🔒" VerticalOptions="Center"/>
+          <Entry x:Name="Pwd" Grid.Column="1" IsPassword="True" Text="motdepasse12"/>
+          <Label Grid.Column="2" Text="👁" VerticalOptions="Center"/>
+        </Grid>
+      </Border>
+
+      <Label Text="Mot de passe oublié ?" Style="{StaticResource Link}" HorizontalOptions="End"/>
+
+      <Button Text="→  Se connecter" Style="{StaticResource Cta}"
+              Command="{Binding Go, Source={x:Static v:Nav.I}}" CommandParameter="//main/home"/>
+
+      <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+        <Label Text="Première visite ?" Style="{StaticResource MutedText}"/>
+        <Label Text="Créer un compte" Style="{StaticResource Link}">
+          <Label.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding Go, Source={x:Static v:Nav.I}}" CommandParameter="register"/>
+          </Label.GestureRecognizers>
+        </Label>
+      </HorizontalStackLayout>
+
+      <Button Text="Explorer sans compte" Style="{StaticResource CtaSoft}"
+              Command="{Binding Go, Source={x:Static v:Nav.I}}" CommandParameter="//main/home"/>
+
+      <Label Text="🛡  Votre façon de communiquer vous appartient. Vos échanges restent privés." Style="{StaticResource MutedText}"/>
+
+    </VerticalStackLayout>
+  </ScrollView>
 </ContentPage>

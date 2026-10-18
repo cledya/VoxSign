@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls" x:Class="Voxsign.Controls.Header" x:Name="root">
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:v="clr-namespace:Voxsign" xmlns:c="clr-namespace:Voxsign.Controls;assembly=VoxSign" x:Class="Voxsign.Controls.Header" x:Name="root">
   <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="14" Padding="0,8">
     <Border Style="{StaticResource Card}" Padding="10" WidthRequest="56" HeightRequest="56">
       <VerticalStackLayout><Label Text="←" FontSize="20" HorizontalOptions="Center"/><Label Text="Retour" FontSize="10" HorizontalOptions="Center"/></VerticalStackLayout>
@@ -7,8 +7,8 @@
     </Border>
     <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
       <Label Text="{Binding Title, Source={x:Reference root}}" Style="{StaticResource H2}"/>
-      <Label Text="{Binding Subtitle, Source={x:Reference root}}" Style="{StaticResource Muted}"/>
+      <Label Text="{Binding Subtitle, Source={x:Reference root}}" Style="{StaticResource MutedLabel}"/>
     </VerticalStackLayout>
-    <Label Grid.Column="2" Text="{Binding Right, Source={x:Reference root}}" Style="{StaticResource Muted}" FontAttributes="Bold" VerticalOptions="Center"/>
+    <Label Grid.Column="2" Text="{Binding Right, Source={x:Reference root}}" Style="{StaticResource MutedLabel}" FontAttributes="Bold" VerticalOptions="Center"/>
   </Grid>
 </ContentView>

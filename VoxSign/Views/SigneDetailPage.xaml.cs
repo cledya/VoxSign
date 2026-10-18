@@ -12,5 +12,5 @@ public partial class SigneDetailPage : ContentPage
         FavLbl.Text = Favorites.Has(s.Id) ? "♥" : "♡";
     }
     void OnFav(object? s, TappedEventArgs e) => FavLbl.Text = Favorites.Toggle(SequenceState.Selected!.Id) ? "♥" : "♡";
-    async void OnSpeak(object? s, EventArgs e) => await Speech.SpeakAsync(SequenceState.Selected!.Word);
+    async void OnSpeak(object? s, EventArgs e) => await Voice.SpeakAsync(SequenceState.Selected!.Word);
 }
